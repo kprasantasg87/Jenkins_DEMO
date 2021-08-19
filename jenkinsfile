@@ -5,7 +5,7 @@ pipeline{
         
        stage('filewatch'){
            steps{
-               sh '/tmp/tmp1filewatch.sh'
+               sh '/tmp/tmp1/filewatch.sh'
            }
        } 
        stage('filedate'){
