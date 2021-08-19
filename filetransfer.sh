@@ -1,2 +1,2 @@
 cd /tmp
-scp -o "StrictHostKeyChecking=no"  file.txt 3.239.70.153:/tmp
+scp -v -o StrictHostKeyChecking=no   file.txt root@3.239.70.153:/tmp
