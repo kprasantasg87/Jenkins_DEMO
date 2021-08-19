@@ -1,0 +1,17 @@
+pipeline{
+    agent any
+    
+    stages{
+        
+       stage('filewatch'){
+           steps{
+               echo "hello world"
+           }
+       } 
+       stage('filedate'){
+           steps{
+               sh '/tmp/tmp1/filedate.sh'
+           }
+       }
+    }
+}
