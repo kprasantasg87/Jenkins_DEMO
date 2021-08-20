@@ -1,0 +1,15 @@
+pipeline{
+agent any
+stages{
+stage('filewatch'){
+steps{
+sh '/tmp/tmp1/filewatch.sh'
+}
+}
+stage('filedate'){
+steps{
+sh '/tmp/tmp1/filedate.sh'
+}
+}
+}
+}
