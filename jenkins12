@@ -1,0 +1,15 @@
+pipeline{
+    agent any
+    stages{
+        stage('upstream job'){
+            steps{
+                sh '/tmp/filedate.sh'
+            }
+        }
+        stage('downstreamjob'){
+            steps{  
+             sh '/tmp/spaceissue.sh'   
+            }
+        }
+    }
+}
