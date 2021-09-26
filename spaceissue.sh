@@ -7,4 +7,5 @@ then
 	echo "size is more that the threshold_value , please take action immediately"
 else
 	echo "all file"
+	echo "tested succdessfully"
 fi
