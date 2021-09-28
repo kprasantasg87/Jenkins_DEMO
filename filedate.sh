@@ -8,5 +8,5 @@ if [ $today_Date -eq $file_date ] && [ $today_month == $file_month ]
 then
 echo "file available for today's date"
 else 
-echo "file is not for today"
+echo "file is not for today only"
 fi
