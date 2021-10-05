@@ -1,0 +1,43 @@
+provider "aws" {
+  region ="us-east-1"
+  access_key ="AKIAXUHURZV7EEJYWVR4"
+  secret_key ="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"
+}
+
+resource "aws_vpc" "terraform_VPC"{
+  cidr_block ="10.0.0.0/16"
+  tags ={
+    name ="Terraform_vpc"
+  }
+}
+resource "aws_subnet" "terraform_subnet"{
+  vpc_id =aws_vpc.terraform_VPC.id
+  cidr_block ="10.0.1.0/24"
+  availability_zone ="us-east-1a"
+  tags={
+    name ="terraform_subnet"
+  }
+}
+resource "aws_internet_gateway" "Terraform_IGW"{
+  vpc_id =aws_vpc.terraform_VPC.id
+  tags ={
+    name ="terraform_IGW"
+  }
+}
+resource "aws_route_table" "Terraform_route"{
+  vpc_id =aws_vpc.terraform_VPC.id
+  route{
+    gateway_id =aws_internet_gateway.Terraform_IGW.id
+    cidr_block ="0.0.0.0/0"
+
+  }
+  tags ={
+    name ="aws_RT"
+  }
+
+}
+
+resource "aws_route_table_association"  "Terraform_association"{
+  subnet_id =aws_subnet.terraform_subnet.id
+  route_table_id=aws_route_table.Terraform_route.id
+}
