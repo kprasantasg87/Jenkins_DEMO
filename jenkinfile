@@ -108,14 +108,7 @@ resource "aws_instance" "Terrform_instance"{
     device_index = 0
         network_interface_id =aws_network_interface.Terraform_net.id
   }
-  user_data =<<-EOF
-  sudo yum update -y
-  sudo yum instll httpd
-  sudo service httpd start
-  EOF
-  tags={
-    name="TERRAFORMSERVER"
-  }
+ 
 }
 
 output "server_private_ip"{
